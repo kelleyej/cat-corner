@@ -6,6 +6,9 @@ export default {
       colors: {
         'custom-blue': '#D0F9FF',
       },
+      fontFamily: {
+        'playpen-sans': 'Playpen-Sans'
+      },
     },
   },
   plugins: [],
