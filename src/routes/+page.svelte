@@ -11,12 +11,42 @@
     let intelligence = true;
     let dogFriendly = true;
     let energetic = true;
+    let adaptability = true;
+    let childFriendly = true;
 </script>
 
-<input type="checkbox" bind:checked={affectionate} /><label>Affectionate</label>
-<input type="checkbox" bind:checked={intelligence} /><label>Intelligence</label>
-<input type="checkbox" bind:checked={dogFriendly} /><label>Dog Friendly</label>
-<input type="checkbox" bind:checked={energetic} /><label>Energetic</label>
+<div class="text-center">
+    <input
+        class="mr-2 accent-pink-200 cursor-pointer"
+        type="checkbox"
+        bind:checked={affectionate}
+    /><label class="mr-2">Affectionate</label>
+    <input
+        class="mr-2 accent-pink-200 cursor-pointer"
+        type="checkbox"
+        bind:checked={intelligence}
+    /><label class="mr-2">Intelligent</label>
+    <input
+        class="mr-2 accent-pink-200 cursor-pointer"
+        type="checkbox"
+        bind:checked={dogFriendly}
+    /><label class="mr-2">Dog Friendly</label>
+    <input
+        class="mr-2 accent-pink-200 cursor-pointer"
+        type="checkbox"
+        bind:checked={energetic}
+    /><label class="mr-2">Energetic</label>
+    <input
+        class="mr-2 accent-pink-200 cursor-pointer"
+        type="checkbox"
+        bind:checked={adaptability}
+    /><label class="mr-2">Adaptable</label>
+    <input
+        class="mr-2 accent-pink-200 cursor-pointer"
+        type="checkbox"
+        bind:checked={childFriendly}
+    /><label>Child Friendly</label>
+</div>
 
 <section class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5">
     {#each catBreeds as cat (cat.id)}
@@ -41,7 +71,7 @@
             {/if}
             {#if intelligence}
                 <div class="flex items-center ml-2 mr-5">
-                    <p class="w-28">Intelligence:</p>
+                    <p class="w-28">Intelligent:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
                             class="h-full border-2 bg-orange-200"
@@ -68,6 +98,28 @@
                         <div
                             class="h-full border-2 bg-purple-200"
                             style="width: {(cat.energy_level / 5) * 100}%"
+                        ></div>
+                    </div>
+                </div>
+            {/if}
+            {#if adaptability}
+                <div class="flex items-center ml-2 mr-5">
+                    <p class="w-28">Adaptable:</p>
+                    <div class="bg-slate-200 w-60 h-5">
+                        <div
+                            class="h-full border-2 bg-blue-200"
+                            style="width: {(cat.adaptability / 5) * 100}%"
+                        ></div>
+                    </div>
+                </div>
+            {/if}
+            {#if childFriendly}
+                <div class="flex items-center ml-2 mr-5">
+                    <p class="w-28">Child Friendly:</p>
+                    <div class="bg-slate-200 w-60 h-5">
+                        <div
+                            class="h-full border-2 bg-blue-200"
+                            style="width: {(cat.child_friendly / 5) * 100}%"
                         ></div>
                     </div>
                 </div>
