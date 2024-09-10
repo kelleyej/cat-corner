@@ -15,7 +15,8 @@
     let childFriendly = true;
 </script>
 
-<div class="text-center">
+<div class="text-center flex justify-center">
+    <p class="mr-2">Check levels of:</p>
     <input
         class="mr-2 accent-pink-200 cursor-pointer"
         type="checkbox"
