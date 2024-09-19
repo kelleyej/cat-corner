@@ -1,5 +1,9 @@
 <script>
     import { breedStore } from "../store.js";
+
+    let question = "";
+    let answer = "";
+    let loading = false;
     let catBreeds = [];
 
     $: {
@@ -13,8 +17,37 @@
     let energetic = true;
     let adaptability = true;
     let childFriendly = true;
+
+    async function askQuestion() {
+        loading = true;
+        const response = await fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `question=${encodeURIComponent(question)}`,
+        });
+        const ans = await response.json();
+        answer = ans.data.split("").slice(2, -2).join("");
+        loading = false;
+        question = "";
+    }
 </script>
 
+<form on:submit|preventDefault={askQuestion}>
+    <input
+        type="text"
+        name="question"
+        placeholder="Ask a question about cats..."
+        bind:value={question}
+    />
+    <button type="submit">Ask question!</button>
+</form>
+{#if loading}
+    <h4>Loading answer...</h4>
+{:else}
+    <h4>{answer}</h4>
+{/if}
 <div class="text-center flex justify-center">
     <p class="mr-2">Check levels of:</p>
     <input

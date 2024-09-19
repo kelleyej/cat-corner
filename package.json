@@ -19,6 +19,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"openai": "^4.58.2"
+		"openai": "^4.62.1"
 	}
 }
