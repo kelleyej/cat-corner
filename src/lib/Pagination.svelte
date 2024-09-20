@@ -65,7 +65,7 @@
     }
 </script>
 
-<section class="flex text-center mt-5">
+<section class="flex text-center flex justify-center mt-5">
     <button
         disabled={Number(activePage) === 1 ? true : false}
         on:click={goToPreviousPage}
@@ -155,7 +155,7 @@
     /><label for="child-friendly" class="mr-2">Child Friendliness</label>
 </div>
 
-<section class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5">
+<section class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5">
     {#each catBreeds as cat (cat.id)}
         <div class="border-4 border-emerald-200 relative text-start">
             <h2 class="font-bold">{cat.name}</h2>
