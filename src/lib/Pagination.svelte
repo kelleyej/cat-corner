@@ -125,7 +125,9 @@
     /><label for="child-friendly" class="mr-2">Child Friendliness</label>
 </div>
 
-<section class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5">
+<section
+    class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain h-screen w-full"
+>
     {#each catBreeds as cat (cat.id)}
         <div
             class="rounded-md border-4 bg-custom-beige border-emerald-400 relative text-start"

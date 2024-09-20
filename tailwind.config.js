@@ -6,11 +6,14 @@ export default {
       colors: {
         'custom-blue': '#D0F9FF',
         'custom-beige': '#E3FAE3',
-        'custom-brown': '#faf0e6'
+        'custom-brown': '#FFFAF4'
       },
       fontFamily: {
         'catamaran': 'Catamaran',
       },
+      backgroundImage: {
+        'hero-pattern': "url('/catBackground.jpeg')"
+      }
     },
   },
   plugins: [],
