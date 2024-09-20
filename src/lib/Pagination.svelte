@@ -5,20 +5,6 @@
     import { page } from "$app/stores";
     let activePage = Number($page.params.id);
 
-    function goToNextPage() {
-        let nextPage = (Number($page.params.id) + 1).toString();
-        goto(`/${nextPage}`);
-        activePage = nextPage;
-        test(nextPage);
-    }
-
-    function goToPreviousPage() {
-        let previousPage = (Number($page.params.id) - 1).toString();
-        goto(`/${previousPage}`);
-        test(previousPage);
-        activePage = previousPage;
-    }
-
     let question = "";
     let answer = "";
     let loading = false;
@@ -62,6 +48,21 @@
         test(page);
         activePage = page;
     }
+    function goToNextPage() {
+        let nextPage = (Number($page.params.id) + 1).toString();
+        goto(`/${nextPage}`);
+
+        console.log("NEXT PAGE:", nextPage);
+        test(nextPage);
+        activePage = nextPage;
+    }
+
+    function goToPreviousPage() {
+        let previousPage = (Number($page.params.id) - 1).toString();
+        goto(`/${previousPage}`);
+        test(previousPage);
+        activePage = previousPage;
+    }
 </script>
 
 <section class="flex text-center">
@@ -69,7 +70,8 @@
     {#each pages as page}
         <div
             on:click={() => handleClick(page)}
-            class="text-center border-2 cursor-pointer {page === activePage
+            class="text-center border-2 cursor-pointer {page ===
+            Number(activePage)
                 ? 'bg-blue-500'
                 : ''}"
         >
