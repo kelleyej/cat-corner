@@ -1,5 +1,23 @@
-<!-- <script>
+<script>
+    let pages = [1, 2, 3, 4, 5, 6, 7, 8];
+    import { goto } from "$app/navigation";
     import { breedStore } from "../store.js";
+    import { page } from "$app/stores";
+    let activePage = Number($page.params.id);
+
+    function goToNextPage() {
+        let nextPage = (Number($page.params.id) + 1).toString();
+        goto(`/${nextPage}`);
+        activePage = nextPage;
+        test(nextPage);
+    }
+
+    function goToPreviousPage() {
+        let previousPage = (Number($page.params.id) - 1).toString();
+        goto(`/${previousPage}`);
+        test(previousPage);
+        activePage = previousPage;
+    }
 
     let question = "";
     let answer = "";
@@ -32,7 +50,34 @@
         loading = false;
         question = "";
     }
+
+    function test(page) {
+        fetch(`https://api.thecatapi.com/v1/breeds/?limit=9&page=${page - 1}`)
+            .then((response) => response.json())
+            .then((data) => breedStore.set(data));
+    }
+
+    function handleClick(page) {
+        goto(`/${page}`);
+        test(page);
+        activePage = page;
+    }
 </script>
+
+<section class="flex text-center">
+    <div on:click={goToPreviousPage} class="cursor-pointer">Previous</div>
+    {#each pages as page}
+        <div
+            on:click={() => handleClick(page)}
+            class="text-center border-2 cursor-pointer {page === activePage
+                ? 'bg-blue-500'
+                : ''}"
+        >
+            {page}
+        </div>
+    {/each}
+    <div on:click={goToNextPage} class="cursor-pointer">Next</div>
+</section>
 
 <section class="text-center mt-5">
     <form on:submit|preventDefault={askQuestion}>
@@ -172,4 +217,4 @@
             {/if}
         </div>
     {/each}
-</section> -->
+</section>

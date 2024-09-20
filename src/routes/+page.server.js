@@ -24,13 +24,12 @@ export const actions = {
     default: async ({ request }) => {
         const form = await request.formData();
         const question = form.get('question')
-        console.log(question)
         const openai_key = env.OPENAI_KEY
-        console.log(openai_key)
+        let catRelated = false;
         let keywords = ['cat', 'cats', 'meow', 'kitty', 'purr', 'feline', 'kitten', 'kittens', 'kitties', 'tiger', "Abyssinian",
             "American Bobtail",
             "American Curl",
-            "American Shorthair",
+            'American Shorthair',
             "American Wirehair",
             "Balinese",
             "Bengal",
@@ -78,34 +77,38 @@ export const actions = {
             "Turkish Van",
             "Ukrainian Levkoy",
             "Yemen"]
+
         for (const keyword of keywords) {
-            if (question.includes(keyword)) {
-                const body = {
-                    model: 'gpt-3.5-turbo',
-                    messages: [{ role: 'user', content: question }]
-                }
-
-                const response = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        "Authorization": `Bearer ${openai_key}`
-                    },
-                    body: JSON.stringify(body)
-                })
-                const data = await response.json();
-                const answer = data.choices[0].message.content.replace(/\n\n+/g, " ").replace(/\"+/g, " ' ").replace(/\n+/g, " ")
-
-                return answer;
-            } else if (question === '') {
-                return 'No question was asked.'
-            }
-
-            else {
-                return 'That question does not seem to be related to cats.'
+            if (question.toLowerCase().includes(keyword.toLowerCase())) {
+                catRelated = true;
             }
         }
+        if (catRelated) {
+            const body = {
+                model: 'gpt-3.5-turbo',
+                messages: [{ role: 'user', content: question }]
+            }
 
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${openai_key}`
+                },
+                body: JSON.stringify(body)
+            })
+            const data = await response.json();
+            const answer = data.choices[0].message.content.replace(/\n\n+/g, " ").replace(/\"+/g, " ' ").replace(/\n+/g, " ")
+
+            return answer;
+        } if (question === '') {
+            return 'No question was asked.'
+        }
+        if (!catRelated) {
+            return 'That question does not seem to be related to cats.'
+        }
 
     }
+
+
 }

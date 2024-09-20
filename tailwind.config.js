@@ -7,7 +7,7 @@ export default {
         'custom-blue': '#D0F9FF',
       },
       fontFamily: {
-        'playpen-sans': 'Playpen-Sans'
+        'catamaran': 'Catamaran',
       },
     },
   },
