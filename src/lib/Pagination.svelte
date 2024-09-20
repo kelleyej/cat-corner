@@ -142,7 +142,7 @@
                     <p class="w-28">Affectionate:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-green-200"
+                            class="h-full border-2 bg-green-300"
                             style="width: {(cat.affection_level / 5) * 100}%"
                         ></div>
                     </div>
@@ -153,7 +153,7 @@
                     <p class="w-28">Intelligent:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-orange-200"
+                            class="h-full border-2 bg-orange-300"
                             style="width: {(cat.intelligence / 5) * 100}%"
                         ></div>
                     </div>
@@ -164,7 +164,7 @@
                     <p class="w-28">Dog Friendly:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-blue-200"
+                            class="h-full border-2 bg-blue-300"
                             style="width: {(cat.dog_friendly / 5) * 100}%"
                         ></div>
                     </div>
@@ -175,7 +175,7 @@
                     <p class="w-28">Energetic:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-purple-200"
+                            class="h-full border-2 bg-purple-300"
                             style="width: {(cat.energy_level / 5) * 100}%"
                         ></div>
                     </div>
@@ -186,7 +186,7 @@
                     <p class="w-28">Adaptable:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-yellow-200"
+                            class="h-full border-2 bg-yellow-300"
                             style="width: {(cat.adaptability / 5) * 100}%"
                         ></div>
                     </div>
@@ -197,7 +197,7 @@
                     <p class="w-28">Child Friendly:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-red-200"
+                            class="h-full border-2 bg-red-300"
                             style="width: {(cat.child_friendly / 5) * 100}%"
                         ></div>
                     </div>
