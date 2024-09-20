@@ -65,20 +65,34 @@
     }
 </script>
 
-<section class="flex text-center">
-    <div on:click={goToPreviousPage} class="cursor-pointer">Previous</div>
+<section class="flex text-center mt-5">
+    <button
+        disabled={Number(activePage) === 1 ? true : false}
+        on:click={goToPreviousPage}
+        class="{Number(activePage) === 1
+            ? 'cursor-not-allowed'
+            : 'cursor-pointer'} pr-2 pl-2"
+    >
+        Previous
+    </button>
     {#each pages as page}
         <div
             on:click={() => handleClick(page)}
-            class="text-center border-2 cursor-pointer {page ===
+            class="text-center border-2 cursor-pointer w-10 mr-1 ml-1 {page ===
             Number(activePage)
-                ? 'bg-blue-500'
+                ? 'bg-pink-200'
                 : ''}"
         >
             {page}
         </div>
     {/each}
-    <div on:click={goToNextPage} class="cursor-pointer">Next</div>
+    <button
+        disabled={Number(activePage) === 8 ? true : false}
+        on:click={goToNextPage}
+        class="{Number(activePage) === 8
+            ? 'cursor-not-allowed'
+            : 'cursor-pointer'} pr-2 pl-2">Next</button
+    >
 </section>
 
 <section class="text-center mt-5">
