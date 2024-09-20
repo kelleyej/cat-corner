@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         'custom-blue': '#D0F9FF',
+        'custom-beige': '#E3FAE3'
       },
       fontFamily: {
         'catamaran': 'Catamaran',

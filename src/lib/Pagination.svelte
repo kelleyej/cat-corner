@@ -5,9 +5,9 @@
     import { page } from "$app/stores";
     let activePage = Number($page.params.id);
 
-    let question = "";
-    let answer = "";
-    let loading = false;
+    // let question = "";
+    // let answer = "";
+    // let loading = false;
     let catBreeds = [];
 
     $: {
@@ -22,20 +22,20 @@
     let adaptability = true;
     let childFriendly = true;
 
-    async function askQuestion() {
-        loading = true;
-        const response = await fetch("/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: `question=${encodeURIComponent(question)}`,
-        });
-        const ans = await response.json();
-        answer = ans.data.split("").slice(2, -2).join("");
-        loading = false;
-        question = "";
-    }
+    // async function askQuestion() {
+    //     loading = true;
+    //     const response = await fetch("/", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/x-www-form-urlencoded",
+    //         },
+    //         body: `question=${encodeURIComponent(question)}`,
+    //     });
+    //     const ans = await response.json();
+    //     answer = ans.data.split("").slice(2, -2).join("");
+    //     loading = false;
+    //     question = "";
+    // }
 
     function test(page) {
         fetch(`https://api.thecatapi.com/v1/breeds/?limit=9&page=${page - 1}`)
@@ -65,37 +65,7 @@
     }
 </script>
 
-<section class="flex text-center flex justify-center mt-5">
-    <button
-        disabled={Number(activePage) === 1 ? true : false}
-        on:click={goToPreviousPage}
-        class="{Number(activePage) === 1
-            ? 'cursor-not-allowed'
-            : 'cursor-pointer'} pr-2 pl-2"
-    >
-        Previous
-    </button>
-    {#each pages as page}
-        <div
-            on:click={() => handleClick(page)}
-            class="text-center border-2 cursor-pointer w-10 mr-1 ml-1 {page ===
-            Number(activePage)
-                ? 'bg-pink-200'
-                : ''}"
-        >
-            {page}
-        </div>
-    {/each}
-    <button
-        disabled={Number(activePage) === 8 ? true : false}
-        on:click={goToNextPage}
-        class="{Number(activePage) === 8
-            ? 'cursor-not-allowed'
-            : 'cursor-pointer'} pr-2 pl-2">Next</button
-    >
-</section>
-
-<section class="text-center mt-5">
+<!-- <section class="text-center mt-5">
     <form on:submit|preventDefault={askQuestion}>
         <input
             class="w-64 border-2 text-center"
@@ -113,9 +83,9 @@
     {:else}
         <h4>{answer}</h4>
     {/if}
-</section>
+</section> -->
 
-<div class="text-center flex justify-center">
+<div class="text-center flex justify-center mt-5">
     <p class="mr-2">Check levels of:</p>
     <input
         class="mr-2 accent-pink-200 cursor-pointer"
@@ -157,9 +127,11 @@
 
 <section class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5">
     {#each catBreeds as cat (cat.id)}
-        <div class="border-4 border-emerald-200 relative text-start">
-            <h2 class="font-bold">{cat.name}</h2>
-            <h3 class="italic mb-2 w-80">{cat.temperament}</h3>
+        <div
+            class="rounded-md border-4 bg-custom-beige border-emerald-400 relative text-start"
+        >
+            <h2 class="font-bold ml-2">{cat.name}</h2>
+            <h3 class="italic mb-2 w-80 ml-2">{cat.temperament}</h3>
             <img
                 class="w-28 absolute right-[-14px] top-[-14px] border-2 border-blue-200"
                 src="https://cdn2.thecatapi.com/images/{cat.reference_image_id}.jpg"
@@ -214,7 +186,7 @@
                     <p class="w-28">Adaptable:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-blue-200"
+                            class="h-full border-2 bg-yellow-200"
                             style="width: {(cat.adaptability / 5) * 100}%"
                         ></div>
                     </div>
@@ -225,7 +197,7 @@
                     <p class="w-28">Child Friendly:</p>
                     <div class="bg-slate-200 w-60 h-5">
                         <div
-                            class="h-full border-2 bg-blue-200"
+                            class="h-full border-2 bg-red-200"
                             style="width: {(cat.child_friendly / 5) * 100}%"
                         ></div>
                     </div>
@@ -233,4 +205,33 @@
             {/if}
         </div>
     {/each}
+</section>
+<section class="flex text-center flex justify-center mt-5 mb-8">
+    <button
+        disabled={Number(activePage) === 1 ? true : false}
+        on:click={goToPreviousPage}
+        class="{Number(activePage) === 1
+            ? 'cursor-not-allowed'
+            : 'cursor-pointer'} pr-2 pl-2"
+    >
+        Previous
+    </button>
+    {#each pages as page}
+        <div
+            on:click={() => handleClick(page)}
+            class="text-center border-2 cursor-pointer w-10 mr-1 ml-1 {page ===
+            Number(activePage)
+                ? 'bg-pink-200'
+                : ''}"
+        >
+            {page}
+        </div>
+    {/each}
+    <button
+        disabled={Number(activePage) === 8 ? true : false}
+        on:click={goToNextPage}
+        class="{Number(activePage) === 8
+            ? 'cursor-not-allowed'
+            : 'cursor-pointer'} pr-2 pl-2">Next</button
+    >
 </section>
