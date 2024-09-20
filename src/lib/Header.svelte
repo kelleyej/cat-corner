@@ -28,15 +28,16 @@
             alt="Orange cat with round glasses on"
         />
     </div>
-    <div class="w-4/12 text-left">
-        <h1 class="font-catamaran not-italic font-bold text-9xl text-pink-500">
+    <div class="w-4/12 text-left h-64">
+        <h1
+            class="font-catamaran not-italic font-bold text-9xl h-56 text-pink-500"
+        >
             <span
-                class="bg-gradient-to-r from-pink-900 to-pink-500 inline-block text-transparent bg-clip-text"
+                class="bg-gradient-to-r from-pink-900 to-pink-500 text-transparent bg-clip-text"
                 >C</span
             >at
-            <br />
             <span
-                class="bg-gradient-to-r from-pink-900 to-pink-500 inline-block text-transparent bg-clip-text"
+                class="bg-gradient-to-r from-pink-900 to-pink-500 text-transparent bg-clip-text"
                 >C</span
             >orner
         </h1>
@@ -48,22 +49,22 @@
             on:submit|preventDefault={askQuestion}
         >
             <input
-                class="w-64 border-2 text-center"
+                class="w-64 border-2 text-center p-2"
                 type="text"
                 name="question"
                 placeholder="Ask a question about cats..."
                 bind:value={question}
             />
             <button
-                class="w-28 cursor-pointer text-center bg-pink-200 hover:bg-sky-700"
-                type="submit">Ask question!</button
+                class="w-32 cursor-pointer text-center bg-pink-200 p-2 hover:bg-custom-brown"
+                type="submit">Tell me more!</button
             >
         </form>
 
         {#if loading}
             <p class="w-96">Loading answer...</p>
         {:else}
-            <p class="w-96">{answer}</p>
+            <p class="w-96 absolute top-20">{answer}</p>
         {/if}
     </div>
 </header>

@@ -85,7 +85,7 @@
     {/if}
 </section> -->
 
-<div class="text-center flex justify-center mt-5">
+<div class="text-center flex justify-center mt-9">
     <p class="mr-2">Check levels of:</p>
     <input
         class="mr-2 accent-pink-200 cursor-pointer"
