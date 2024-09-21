@@ -151,7 +151,7 @@
             {#if affectionate}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Affectionate:</p>
-                    <div class="bg-slate-200 w-60 h-5">
+                    <div class="bg-slate-200 w-72 h-5">
                         <div
                             class="h-full border-2 bg-green-300"
                             style="width: {(cat.affection_level / 5) * 100}%"
@@ -162,7 +162,7 @@
             {#if intelligence}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Intelligent:</p>
-                    <div class="bg-slate-200 w-60 h-5">
+                    <div class="bg-slate-200 w-72 h-5">
                         <div
                             class="h-full border-2 bg-orange-300"
                             style="width: {(cat.intelligence / 5) * 100}%"
@@ -173,7 +173,7 @@
             {#if dogFriendly}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Dog Friendly:</p>
-                    <div class="bg-slate-200 w-60 h-5">
+                    <div class="bg-slate-200 w-72 h-5">
                         <div
                             class="h-full border-2 bg-blue-300"
                             style="width: {(cat.dog_friendly / 5) * 100}%"
@@ -184,7 +184,7 @@
             {#if energetic}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Energetic:</p>
-                    <div class="bg-slate-200 w-60 h-5">
+                    <div class="bg-slate-200 w-72 h-5">
                         <div
                             class="h-full border-2 bg-purple-300"
                             style="width: {(cat.energy_level / 5) * 100}%"
@@ -195,7 +195,7 @@
             {#if adaptability}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Adaptable:</p>
-                    <div class="bg-slate-200 w-60 h-5">
+                    <div class="bg-slate-200 w-72 h-5">
                         <div
                             class="h-full border-2 bg-yellow-300"
                             style="width: {(cat.adaptability / 5) * 100}%"
@@ -206,7 +206,7 @@
             {#if childFriendly}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Child Friendly:</p>
-                    <div class="bg-slate-200 w-60 h-5">
+                    <div class="bg-slate-200 w-72 h-5">
                         <div
                             class="h-full border-2 bg-red-300"
                             style="width: {(cat.child_friendly / 5) * 100}%"
