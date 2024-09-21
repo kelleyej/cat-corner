@@ -126,19 +126,28 @@
 </div>
 
 <section
-    class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain h-screen w-full"
+    class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain"
 >
     {#each catBreeds as cat (cat.id)}
         <div
-            class="rounded-md border-4 bg-custom-beige border-emerald-400 relative text-start"
+            class="border-4 bg-custom-beige border-emerald-400 relative text-start pb-2"
         >
-            <h2 class="font-bold ml-2">{cat.name}</h2>
-            <h3 class="italic mb-2 w-80 ml-2">{cat.temperament}</h3>
-            <img
+            <div class="flex mb-2">
+                <div class="w-72">
+                    <h2 class="font-bold ml-2">{cat.name}</h2>
+                    <h3 class="italic mb-2 ml-2">{cat.temperament}</h3>
+                </div>
+
+                <div
+                    class="rounded-full bg-cover w-28 h-28 mt-2"
+                    style="background-image: url('https://cdn2.thecatapi.com/images/{cat.reference_image_id}.jpg');"
+                ></div>
+            </div>
+            <!-- <img
                 class="w-28 absolute right-[-14px] top-[-14px] border-2 border-blue-200"
                 src="https://cdn2.thecatapi.com/images/{cat.reference_image_id}.jpg"
                 alt="Image of a {cat.name}"
-            />
+            /> -->
             {#if affectionate}
                 <div class="flex items-center ml-2 mr-5">
                     <p class="w-28">Affectionate:</p>

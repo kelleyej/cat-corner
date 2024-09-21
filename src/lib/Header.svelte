@@ -44,10 +44,7 @@
     </div>
 
     <div class="text-center w-4/12">
-        <form
-            class="absolute top-5 mb-5"
-            on:submit|preventDefault={askQuestion}
-        >
+        <form on:submit|preventDefault={askQuestion}>
             <input
                 class="w-64 border-2 text-center p-2"
                 type="text"
@@ -60,11 +57,12 @@
                 type="submit">Tell me more!</button
             >
         </form>
-
-        {#if loading}
-            <p class="w-96">Loading answer...</p>
-        {:else}
-            <p class="w-96 absolute top-20">{answer}</p>
-        {/if}
+        <div class="overflow-y-auto h-40 flex justify-center mt-2">
+            {#if loading}
+                <p class="w-96">Purring into action...</p>
+            {:else}
+                <p class="w-96">{answer}</p>
+            {/if}
+        </div>
     </div>
 </header>
