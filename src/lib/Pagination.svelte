@@ -4,7 +4,7 @@
     import { breedStore } from "../store.js";
     import { page } from "$app/stores";
     let activePage = Number($page.params.id);
-
+    console.log("ACTIVEPAGE:", activePage);
     // let question = "";
     // let answer = "";
     // let loading = false;
@@ -231,7 +231,8 @@
         <div
             on:click={() => handleClick(page)}
             class="text-center border-2 cursor-pointer w-10 mr-1 ml-1 {page ===
-            Number(activePage)
+                Number(activePage) ||
+            (isNaN(Number(activePage)) && page === 1)
                 ? 'bg-pink-200'
                 : ''}"
         >
