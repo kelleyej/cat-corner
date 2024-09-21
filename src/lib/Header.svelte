@@ -1,0 +1,68 @@
+<script>
+    let question = "";
+    let answer = "";
+    let loading = false;
+    async function askQuestion() {
+        loading = true;
+        const response = await fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `question=${encodeURIComponent(question)}`,
+        });
+        const ans = await response.json();
+        answer = ans.data.split("").slice(2, -2).join("");
+        loading = false;
+        question = "";
+    }
+</script>
+
+<header
+    class="h-64 flex bg-custom-blue items-center border-b-4 border-blue-500 size-full relative"
+>
+    <div class="w-4/12">
+        <img
+            class="h-60 mb-[-12px]"
+            src="cat.jpeg"
+            alt="Orange cat with round glasses on"
+        />
+    </div>
+    <div class="w-4/12 text-left h-64">
+        <h1
+            class="font-catamaran not-italic font-bold text-9xl h-56 text-pink-500"
+        >
+            <span
+                class="bg-gradient-to-r from-pink-900 to-pink-500 text-transparent bg-clip-text"
+                >C</span
+            >at
+            <span
+                class="bg-gradient-to-r from-pink-900 to-pink-500 text-transparent bg-clip-text"
+                >C</span
+            >orner
+        </h1>
+    </div>
+
+    <div class="text-center w-4/12">
+        <form on:submit|preventDefault={askQuestion}>
+            <input
+                class="w-64 border-2 text-center p-2"
+                type="text"
+                name="question"
+                placeholder="Ask a question about cats..."
+                bind:value={question}
+            />
+            <button
+                class="w-32 cursor-pointer text-center bg-pink-200 p-2 hover:bg-custom-brown"
+                type="submit">Tell me more!</button
+            >
+        </form>
+        <div class="overflow-y-auto h-40 flex justify-center mt-2">
+            {#if loading}
+                <p class="w-96">Loading answer...</p>
+            {:else}
+                <p class="w-96">{answer}</p>
+            {/if}
+        </div>
+    </div>
+</header>
