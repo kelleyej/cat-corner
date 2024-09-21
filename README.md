@@ -1,6 +1,7 @@
-# Cat Corner 
+# Cat Corner 🐾
 
 ## Abstract
+A web application built using Svelte, SvelteKit, and Tailwind CSS. As a user, you can paginate through pages to view 67 different cat breeds and check levels of affection, friendliness, energy, intelligence, and more. Utilizing the OpenAI API, you can ask any question related to cats to purrrrfect your cat knowledge! 
 
 ## Contributors 
 [Erin Kelley](https://github.com/kelleyej)
