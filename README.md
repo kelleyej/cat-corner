@@ -13,10 +13,10 @@ A web application built using Svelte, SvelteKit, and Tailwind CSS. As a user, yo
 
 ## Context 
 - Goals:
-
+  - Create a web application utilizing a new-to-me tech stack, including Svelte, SvelteKit, and Tailwind CSS. 
 - Wins:
-
-- Challenges:
+  - Successfully implemented the OpenAI API to create a question box dedicated to allowing users to ask questions specifically related to cats.
+  - Used pagination to minimize overwhelming the user with all 67 breeds of cats populating on the homepage. 
 
 ## Future Improvements 
-
+- 
