@@ -134,7 +134,7 @@
         >
             <div class="flex mb-2">
                 <div class="w-72">
-                    <h2 class="font-bold ml-2">{cat.name}</h2>
+                    <h2 class="font-bold ml-2 text-2xl">{cat.name} 🐾</h2>
                     <h3 class="italic mb-2 ml-2">{cat.temperament}</h3>
                 </div>
 

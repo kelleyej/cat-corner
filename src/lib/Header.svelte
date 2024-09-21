@@ -59,7 +59,7 @@
         </form>
         <div class="overflow-y-auto h-40 flex justify-center mt-2">
             {#if loading}
-                <p class="w-96">Purring into action...</p>
+                <p class="w-96">Loading answer...</p>
             {:else}
                 <p class="w-96">{answer}</p>
             {/if}
