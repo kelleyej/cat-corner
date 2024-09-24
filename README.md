@@ -7,10 +7,9 @@ A web application built using Svelte, SvelteKit, and Tailwind CSS. As a user, yo
 [Erin Kelley](https://github.com/kelleyej)
 
 ## App Preview
-![Screenshot 2024-09-21 at 2 38 21 PM](https://github.com/user-attachments/assets/e5625535-3524-4f52-b28b-8ff0e2600e7b)
-![Screenshot 2024-09-21 at 2 40 37 PM](https://github.com/user-attachments/assets/de2a4c49-3abe-4432-b0d2-4849e8513089)
+![Screenshot 2024-09-24 at 5 50 49 PM](https://github.com/user-attachments/assets/0e7a46d2-4c8e-49dc-a064-974fa96ca397)
 ![Screenshot 2024-09-21 at 2 41 04 PM](https://github.com/user-attachments/assets/51d895a8-299f-4e91-a611-06dd1849cdf5)
-
+![Screenshot 2024-09-21 at 2 40 37 PM](https://github.com/user-attachments/assets/de2a4c49-3abe-4432-b0d2-4849e8513089)
 ## Technologies Used 
 ![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat) ![Svelte Badge](https://img.shields.io/badge/Svelte-FF3E00?logo=svelte&logoColor=fff&style=flat) ![OpenAI Badge](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=fff&style=flat)
 
