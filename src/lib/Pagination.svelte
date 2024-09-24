@@ -62,7 +62,13 @@
     }
 </script>
 
-<input type="text" on:input={searchCatBreeds} bind:value={breedName} />
+<input
+    class="text-center border-2 ml-2 mt-2"
+    type="text"
+    placeholder="Search cat breeds"
+    on:input={searchCatBreeds}
+    bind:value={breedName}
+/>
 <div class="text-center flex justify-center mt-9">
     <p class="mr-2">Check levels of:</p>
     <input
