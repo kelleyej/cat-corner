@@ -5,6 +5,7 @@
     import { onMount } from "svelte";
     import { breedStore } from "../store.js";
     import { page } from "$app/stores";
+    let breedName = "";
 
     let pageNumber = $page.params.id;
 
@@ -18,5 +19,6 @@
 </script>
 
 <Header />
+
 <Pagination />
 <slot />

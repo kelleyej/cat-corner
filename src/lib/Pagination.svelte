@@ -4,15 +4,21 @@
     import { breedStore } from "../store.js";
     import { page } from "$app/stores";
     let activePage = Number($page.params.id);
-    console.log("ACTIVEPAGE:", activePage);
-    // let question = "";
-    // let answer = "";
-    // let loading = false;
+
+    let breedName = "";
     let catBreeds = [];
 
-    $: {
+    $: catBreeds = $breedStore;
+
+    $: if (breedName.length > 0) {
+        catBreeds = catBreeds.filter((cat) =>
+            cat.name.toLowerCase().includes(breedName.toLowerCase()),
+        );
+    }
+
+    $: if (!breedName.length) {
+        test(activePage);
         catBreeds = $breedStore;
-        console.log(catBreeds);
     }
 
     let affectionate = true;
@@ -22,23 +28,14 @@
     let adaptability = true;
     let childFriendly = true;
 
-    // async function askQuestion() {
-    //     loading = true;
-    //     const response = await fetch("/", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded",
-    //         },
-    //         body: `question=${encodeURIComponent(question)}`,
-    //     });
-    //     const ans = await response.json();
-    //     answer = ans.data.split("").slice(2, -2).join("");
-    //     loading = false;
-    //     question = "";
-    // }
-
     function test(page) {
         fetch(`https://api.thecatapi.com/v1/breeds/?limit=9&page=${page - 1}`)
+            .then((response) => response.json())
+            .then((data) => breedStore.set(data));
+    }
+
+    function searchCatBreeds() {
+        fetch("https://api.thecatapi.com/v1/breeds/?limit=67")
             .then((response) => response.json())
             .then((data) => breedStore.set(data));
     }
@@ -46,14 +43,13 @@
     function handleClick(page) {
         goto(`/${page}`);
         test(page);
+        breedName = "";
         activePage = page;
     }
     function goToNextPage() {
         let nextPage = (Number($page.params.id) + 1).toString();
         goto(`/${nextPage}`);
-
-        console.log("NEXT PAGE:", nextPage);
-        test(nextPage);
+        breedName = "";
         activePage = nextPage;
     }
 
@@ -61,30 +57,12 @@
         let previousPage = (Number($page.params.id) - 1).toString();
         goto(`/${previousPage}`);
         test(previousPage);
+        breedName = "";
         activePage = previousPage;
     }
 </script>
 
-<!-- <section class="text-center mt-5">
-    <form on:submit|preventDefault={askQuestion}>
-        <input
-            class="w-64 border-2 text-center"
-            type="text"
-            name="question"
-            placeholder="Ask a question about cats..."
-            bind:value={question}
-        />
-        <button class="border-2 w-28 cursor-pointer text-center" type="submit"
-            >Ask question!</button
-        >
-    </form>
-    {#if loading}
-        <h4>Loading answer...</h4>
-    {:else}
-        <h4>{answer}</h4>
-    {/if}
-</section> -->
-
+<input type="text" on:input={searchCatBreeds} bind:value={breedName} />
 <div class="text-center flex justify-center mt-9">
     <p class="mr-2">Check levels of:</p>
     <input
@@ -126,20 +104,20 @@
 </div>
 
 <section
-    class="grid grid-cols-3 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain"
+    class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain"
 >
     {#each catBreeds as cat (cat.id)}
         <div
             class="border-4 bg-custom-beige border-emerald-400 relative text-start pb-2"
         >
-            <div class="flex mb-2">
-                <div class="w-72">
+            <div class="flex mb-2 justify-between">
+                <div class="w-3/5">
                     <h2 class="font-bold ml-2 text-2xl">{cat.name} 🐾</h2>
                     <h3 class="italic mb-2 ml-2">{cat.temperament}</h3>
                 </div>
 
                 <div
-                    class="rounded-full bg-cover w-28 h-28 mt-2"
+                    class="rounded-full bg-cover w-28 h-28 mt-2 mr-2"
                     style="background-image: url('https://cdn2.thecatapi.com/images/{cat.reference_image_id}.jpg');"
                 ></div>
             </div>
@@ -222,7 +200,7 @@
         disabled={Number(activePage) === 1 ? true : false}
         on:click={goToPreviousPage}
         class="{Number(activePage) === 1
-            ? 'cursor-not-allowed'
+            ? 'cursor-not-allowed text-slate-400'
             : 'cursor-pointer'} pr-2 pl-2"
     >
         Previous
@@ -243,7 +221,7 @@
         disabled={Number(activePage) === 8 ? true : false}
         on:click={goToNextPage}
         class="{Number(activePage) === 8
-            ? 'cursor-not-allowed'
+            ? 'cursor-not-allowed text-slate-400'
             : 'cursor-pointer'} pr-2 pl-2">Next</button
     >
 </section>
