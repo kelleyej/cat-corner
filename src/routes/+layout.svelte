@@ -19,6 +19,5 @@
 </script>
 
 <Header />
-
 <Pagination />
 <slot />

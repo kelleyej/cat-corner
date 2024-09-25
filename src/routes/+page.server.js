@@ -1,22 +1,4 @@
-// import { json } from '@sveltejs/kit';
 
-// import { OpenAI } from 'openai';
-
-// const openai = new OpenAI({
-//     apiKey: API_KEY,
-// });
-
-// export async function POST({ request }) {
-//     const { question } = await request.json()
-//     const response = await openai.createCompletion({
-//         model: 'text-davinci-003',
-//         prompt: question,
-//         max_tokens: 150,
-//         temperature: 0.7,
-//     })
-//     const answer = response.data.choices[0].text.trim()
-//     return json({ answer })
-// }
 import { env } from '$env/dynamic/private';
 
 export const actions = {
