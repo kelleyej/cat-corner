@@ -1,24 +1,23 @@
 <script>
     let pages = [1, 2, 3, 4, 5, 6, 7, 8];
     import { goto } from "$app/navigation";
-    import { breedStore } from "../store.js";
+    import { breedStore, catStore } from "../store.js";
     import { page } from "$app/stores";
     let activePage = Number($page.params.id);
 
     let breedName = "";
     let catBreeds = [];
-
+    let allCats = [];
     $: catBreeds = $breedStore;
-
-    $: if (breedName.length > 0) {
-        catBreeds = catBreeds.filter((cat) =>
+    $: allCats = $catStore;
+    $: if (breedName) {
+        allCats = allCats.filter((cat) =>
             cat.name.toLowerCase().includes(breedName.toLowerCase()),
         );
     }
 
     $: if (!breedName.length) {
         test(activePage);
-        catBreeds = $breedStore;
     }
 
     let affectionate = true;
@@ -37,7 +36,7 @@
     function searchCatBreeds() {
         fetch("https://api.thecatapi.com/v1/breeds/?limit=67")
             .then((response) => response.json())
-            .then((data) => breedStore.set(data));
+            .then((data) => catStore.set(data));
     }
 
     function handleClick(page) {
@@ -65,7 +64,7 @@
 <input
     class="text-center border-2 ml-2 mt-2"
     type="text"
-    placeholder="Search cat breeds"
+    placeholder="🔎 Search cat breeds"
     on:input={searchCatBreeds}
     bind:value={breedName}
 />
@@ -112,7 +111,7 @@
 <section
     class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain"
 >
-    {#each catBreeds as cat (cat.id)}
+    {#each !breedName.length ? catBreeds : allCats as cat (cat.id)}
         <div
             class="border-4 bg-custom-beige border-emerald-400 relative text-start pb-2"
         >
