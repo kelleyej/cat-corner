@@ -123,7 +123,7 @@
             <div
                 class="border-4 bg-custom-beige border-emerald-400 relative text-start pb-2"
             >
-                <div class="flex mb-2 justify-between">
+                <div class="flex mb-3 justify-between">
                     <div class="w-3/5">
                         <h2 class="font-bold ml-2 text-2xl">{cat.name} 🐾</h2>
                         <h3 class="italic mb-2 ml-2">{cat.temperament}</h3>
@@ -135,7 +135,7 @@
                     ></div>
                 </div>
                 {#if affectionate}
-                    <div class="flex items-center mb-1 mr-5">
+                    <div class="flex items-center mb-1 mr-7">
                         <div class="w-44 mr-2 text-right">
                             <p class="text-sm">Affectionate:</p>
                         </div>
@@ -149,7 +149,7 @@
                     </div>
                 {/if}
                 {#if intelligence}
-                    <div class="flex items-center mb-1 mr-5">
+                    <div class="flex items-center mb-1 mr-7">
                         <div class="w-44 mr-2 text-right">
                             <p class="text-sm">Intelligent:</p>
                         </div>
@@ -162,7 +162,7 @@
                     </div>
                 {/if}
                 {#if dogFriendly}
-                    <div class="flex items-center mb-1 mr-5">
+                    <div class="flex items-center mb-1 mr-7">
                         <div class="w-44 mr-2 text-right">
                             <p class="text-sm">Dog Friendly:</p>
                         </div>
@@ -175,7 +175,7 @@
                     </div>
                 {/if}
                 {#if energetic}
-                    <div class="flex items-center mb-1 mr-5">
+                    <div class="flex items-center mb-1 mr-7">
                         <div class="w-44 mr-2 text-right">
                             <p class="text-sm">Energetic:</p>
                         </div>
@@ -188,7 +188,7 @@
                     </div>
                 {/if}
                 {#if adaptability}
-                    <div class="flex items-center mb-1 mr-5">
+                    <div class="flex items-center mb-1 mr-7">
                         <div class="w-44 mr-2 text-right">
                             <p class="text-sm">Adaptable:</p>
                         </div>
@@ -201,7 +201,7 @@
                     </div>
                 {/if}
                 {#if childFriendly}
-                    <div class="flex items-center mb-1 mr-5">
+                    <div class="flex items-center mb-1 mr-7">
                         <div class="w-44 mr-2 text-right">
                             <p class="text-sm">Child-Friendly:</p>
                         </div>
