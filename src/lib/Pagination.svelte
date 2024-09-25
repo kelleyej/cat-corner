@@ -17,7 +17,7 @@
     }
 
     $: if (!breedName.length) {
-        test(activePage);
+        paginateCatBreeds(activePage);
     }
 
     let affectionate = true;
@@ -27,7 +27,7 @@
     let adaptability = true;
     let childFriendly = true;
 
-    function test(page) {
+    function paginateCatBreeds(page) {
         fetch(`https://api.thecatapi.com/v1/breeds/?limit=9&page=${page - 1}`)
             .then((response) => response.json())
             .then((data) => breedStore.set(data));
@@ -41,13 +41,14 @@
 
     function handleClick(page) {
         goto(`/${page}`);
-        test(page);
+        paginateCatBreeds(page);
         breedName = "";
         activePage = page;
     }
     function goToNextPage() {
         let nextPage = (Number($page.params.id) + 1).toString();
         goto(`/${nextPage}`);
+        paginateCatBreeds(nextPage);
         breedName = "";
         activePage = nextPage;
     }
@@ -55,7 +56,7 @@
     function goToPreviousPage() {
         let previousPage = (Number($page.params.id) - 1).toString();
         goto(`/${previousPage}`);
-        test(previousPage);
+        paginateCatBreeds(previousPage);
         breedName = "";
         activePage = previousPage;
     }
