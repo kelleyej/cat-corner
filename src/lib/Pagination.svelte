@@ -135,8 +135,10 @@
                     ></div>
                 </div>
                 {#if affectionate}
-                    <div class="flex items-center ml-2 mr-5">
-                        <p class="w-28">Affectionate:</p>
+                    <div class="flex items-center mb-1 mr-5">
+                        <div class="w-44 mr-2 text-right">
+                            <p class="text-sm">Affectionate:</p>
+                        </div>
                         <div class="bg-slate-200 w-72 h-5">
                             <div
                                 class="h-full border-2 bg-green-300"
@@ -147,8 +149,10 @@
                     </div>
                 {/if}
                 {#if intelligence}
-                    <div class="flex items-center ml-2 mr-5">
-                        <p class="w-28">Intelligent:</p>
+                    <div class="flex items-center mb-1 mr-5">
+                        <div class="w-44 mr-2 text-right">
+                            <p class="text-sm">Intelligent:</p>
+                        </div>
                         <div class="bg-slate-200 w-72 h-5">
                             <div
                                 class="h-full border-2 bg-orange-300"
@@ -158,8 +162,10 @@
                     </div>
                 {/if}
                 {#if dogFriendly}
-                    <div class="flex items-center ml-2 mr-5">
-                        <p class="w-28">Dog Friendly:</p>
+                    <div class="flex items-center mb-1 mr-5">
+                        <div class="w-44 mr-2 text-right">
+                            <p class="text-sm">Dog Friendly:</p>
+                        </div>
                         <div class="bg-slate-200 w-72 h-5">
                             <div
                                 class="h-full border-2 bg-blue-300"
@@ -169,8 +175,10 @@
                     </div>
                 {/if}
                 {#if energetic}
-                    <div class="flex items-center ml-2 mr-5">
-                        <p class="w-28">Energetic:</p>
+                    <div class="flex items-center mb-1 mr-5">
+                        <div class="w-44 mr-2 text-right">
+                            <p class="text-sm">Energetic:</p>
+                        </div>
                         <div class="bg-slate-200 w-72 h-5">
                             <div
                                 class="h-full border-2 bg-purple-300"
@@ -180,8 +188,10 @@
                     </div>
                 {/if}
                 {#if adaptability}
-                    <div class="flex items-center ml-2 mr-5">
-                        <p class="w-28">Adaptable:</p>
+                    <div class="flex items-center mb-1 mr-5">
+                        <div class="w-44 mr-2 text-right">
+                            <p class="text-sm">Adaptable:</p>
+                        </div>
                         <div class="bg-slate-200 w-72 h-5">
                             <div
                                 class="h-full border-2 bg-yellow-300"
@@ -191,8 +201,10 @@
                     </div>
                 {/if}
                 {#if childFriendly}
-                    <div class="flex items-center ml-2 mr-5">
-                        <p class="w-28">Child Friendly:</p>
+                    <div class="flex items-center mb-1 mr-5">
+                        <div class="w-44 mr-2 text-right">
+                            <p class="text-sm">Child-Friendly:</p>
+                        </div>
                         <div class="bg-slate-200 w-72 h-5">
                             <div
                                 class="h-full border-2 bg-red-300"
