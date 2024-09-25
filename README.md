@@ -21,4 +21,4 @@ A web application built using Svelte, SvelteKit, and Tailwind CSS. As a user, yo
   - Used pagination to minimize overwhelming the user with all 67 breeds of cats populating on the homepage. 
 
 ## Future Improvements 
-- 
+- The Cat API offers more information pertaining to each breed. I could consider adding additional detail to each card. 
