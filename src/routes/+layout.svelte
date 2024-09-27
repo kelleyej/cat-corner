@@ -6,12 +6,12 @@
     import { breedStore } from "../store.js";
     import { page } from "$app/stores";
     import Error from "$lib/Error.svelte";
-
+    let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let breedName = "";
 
-    let pageNumber = $page.params.id;
+    let pageNumber = Number($page.params.id);
     $: {
-        console.log(pageNumber);
+        console.log(typeof pageNumber);
     }
 
     onMount(async () => {
@@ -26,7 +26,7 @@
 <svelte:head>
     <title>Cat Breeds</title>
 </svelte:head>
-{#if pageNumber >= 9}
+{#if pageNumber >= 9 || !pages.includes(pageNumber)}
     <Error />
 {:else}
     <Header />
