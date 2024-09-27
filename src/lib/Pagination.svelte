@@ -65,9 +65,11 @@
     }
 </script>
 
+<label for="search" class="invisible text-xs ml-[-20px]">Search</label>
 <input
-    class="text-center border-2 ml-2 mt-2"
+    class="text-center border-2 mt-2"
     type="text"
+    id="search"
     placeholder="🔎 Search cat breeds"
     on:input={searchCatBreeds}
     bind:value={breedName}

@@ -18,6 +18,10 @@
     });
 </script>
 
+<svelte:head>
+    <title>Cat Breeds</title>
+</svelte:head>
+
 <Header />
 <Pagination />
 <slot />

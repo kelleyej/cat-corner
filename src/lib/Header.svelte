@@ -45,9 +45,11 @@
 
     <div class="text-center w-4/12 mr-2">
         <form on:submit|preventDefault={askQuestion}>
+            <label for="ask" class="invisible">Ask</label>
             <input
                 class="w-60 border-2 text-center p-2"
                 type="text"
+                id="ask"
                 name="question"
                 placeholder="Ask a question about cats..."
                 bind:value={question}
