@@ -5,9 +5,14 @@
     import { onMount } from "svelte";
     import { breedStore } from "../store.js";
     import { page } from "$app/stores";
+    import Error from "$lib/Error.svelte";
+
     let breedName = "";
 
     let pageNumber = $page.params.id;
+    $: {
+        console.log(pageNumber);
+    }
 
     onMount(async () => {
         fetch(
@@ -21,7 +26,10 @@
 <svelte:head>
     <title>Cat Breeds</title>
 </svelte:head>
-
-<Header />
-<Pagination />
+{#if pageNumber >= 9}
+    <Error />
+{:else}
+    <Header />
+    <Pagination />
+{/if}
 <slot />
