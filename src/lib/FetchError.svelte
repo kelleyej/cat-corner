@@ -1,11 +1,3 @@
-<script>
-    import { goto } from "$app/navigation";
-
-    function goHome() {
-        goto("/");
-    }
-</script>
-
 <svelte:head>
     <title>Error Page</title>
 </svelte:head>
@@ -21,13 +13,8 @@
     </header>
     <section class="flex items-center flex-col mt-5">
         <h1 class="font-catamaran text-7xl text-center pr-5 pl-5">
-            Oh no! Looks like there is a small cat-astrophe. That page does not
-            exist.
+            Oh no! Looks like there is a small cat-astrophe. Please try again
+            later.
         </h1>
-        <button
-            on:click={goHome}
-            class="w-36 mb-2 pt-1 pb-1 mt-10 border-2 rounded-full border-green-600 bg-green-200 hover:bg-custom-brown"
-            >Go Home</button
-        >
     </section>
 </body>

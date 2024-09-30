@@ -90,44 +90,56 @@
     on:input={searchCatBreeds}
     bind:value={breedName}
 />
-<div class="text-center flex justify-center mt-9">
-    <p class="mr-2">Check levels of:</p>
-    <input
-        class="mr-2 accent-pink-200 cursor-pointer"
-        type="checkbox"
-        id="affection"
-        bind:checked={affectionate}
-    /><label for="affection" class="mr-2">Affection</label>
-    <input
-        class="mr-2 accent-pink-200 cursor-pointer"
-        type="checkbox"
-        id="intelligence"
-        bind:checked={intelligence}
-    /><label for="intelligence" class="mr-2">Intelligence</label>
-    <input
-        class="mr-2 accent-pink-200 cursor-pointer"
-        type="checkbox"
-        id="dog-friendly"
-        bind:checked={dogFriendly}
-    /><label for="dog-friendly" class="mr-2">Dog Friendliness</label>
-    <input
-        class="mr-2 accent-pink-200 cursor-pointer"
-        type="checkbox"
-        id="energy"
-        bind:checked={energetic}
-    /><label for="energy" class="mr-2">Energy</label>
-    <input
-        class="mr-2 accent-pink-200 cursor-pointer"
-        type="checkbox"
-        id="adaptability"
-        bind:checked={adaptability}
-    /><label for="adaptability" class="mr-2">Adaptability</label>
-    <input
-        class="mr-2 accent-pink-200 cursor-pointer"
-        type="checkbox"
-        id="child-friendly"
-        bind:checked={childFriendly}
-    /><label for="child-friendly" class="mr-2">Child Friendliness</label>
+<div class="text-center flex justify-center mt-9 text-xxs md:text-base">
+    <p class="mr-2 hidden sm:block">Check levels of:</p>
+    <div>
+        <input
+            class="mr-2 accent-pink-200 cursor-pointer"
+            type="checkbox"
+            id="affection"
+            bind:checked={affectionate}
+        /><label for="affection" class="mr-2">Affection</label>
+    </div>
+    <div>
+        <input
+            class="mr-2 accent-pink-200 cursor-pointer"
+            type="checkbox"
+            id="intelligence"
+            bind:checked={intelligence}
+        /><label for="intelligence" class="mr-2">Intelligence</label>
+    </div>
+    <div>
+        <input
+            class="mr-2 accent-pink-200 cursor-pointer"
+            type="checkbox"
+            id="dog-friendly"
+            bind:checked={dogFriendly}
+        /><label for="dog-friendly" class="mr-2">Dog Friendliness</label>
+    </div>
+    <div>
+        <input
+            class="mr-2 accent-pink-200 cursor-pointer"
+            type="checkbox"
+            id="energy"
+            bind:checked={energetic}
+        /><label for="energy" class="mr-2">Energy</label>
+    </div>
+    <div>
+        <input
+            class="mr-2 accent-pink-200 cursor-pointer"
+            type="checkbox"
+            id="adaptability"
+            bind:checked={adaptability}
+        /><label for="adaptability" class="mr-2">Adaptability</label>
+    </div>
+    <div>
+        <input
+            class="mr-2 accent-pink-200 cursor-pointer"
+            type="checkbox"
+            id="child-friendly"
+            bind:checked={childFriendly}
+        /><label for="child-friendly" class="mr-2">Child Friendliness</label>
+    </div>
 </div>
 {#if !allCats.length && catError}
     <h3 class="text-center mt-10 mb-10 text-3xl">
@@ -135,7 +147,7 @@
     </h3>
 {:else}
     <section
-        class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 text-center mt-10 mr-5 ml-5 mb-5 bg-hero-pattern bg-repeat bg-contain"
+        class="grid-cols-1 ml-2 mr-2 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 text-center mt-10 mb-5 bg-hero-pattern bg-repeat bg-contain"
     >
         {#each !breedName.length ? catBreeds : allCats as cat (cat.id)}
             <div
@@ -236,13 +248,7 @@
     </section>
 {/if}
 <section class="flex text-center flex justify-center mt-5 mb-8">
-    <button
-        disabled={Number(activePage) === 1 ? true : false}
-        on:click={goToPreviousPage}
-        class="{Number(activePage) === 1
-            ? 'cursor-not-allowed text-slate-400'
-            : 'cursor-pointer'} pr-2 pl-2"
-    >
+    <button disabled="true" class="cursor-not-allowed text-slate-400">
         Previous
     </button>
     {#each pages as page}

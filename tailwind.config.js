@@ -15,6 +15,9 @@ export default {
       },
       backgroundImage: {
         'hero-pattern': "url('/catBackground.jpeg')"
+      },
+      fontSize: {
+        'xxs': '0.625rem',
       }
     },
   },

@@ -9,15 +9,11 @@
     let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let breedName = "";
 
-    let pageNumber = Number($page.params.id);
-    $: {
-        if (Number.isNaN(pageNumber)) {
-            console.log("yes");
-        }
-    }
+    let activePage = Number($page.params.id);
+
     onMount(async () => {
         fetch(
-            `https://api.thecatapi.com/v1/breeds/?limit=9&page=${pageNumber - 1}`,
+            `https://api.thecatapi.com/v1/breeds/?limit=9&page=${activePage - 1}`,
         )
             .then((response) => response.json())
             .then((data) => breedStore.set(data));
@@ -25,7 +21,7 @@
 </script>
 
 <svelte:head>
-    <title>Cat Breeds</title>
+    <title>Cat Corner</title>
 </svelte:head>
 
 <slot />
