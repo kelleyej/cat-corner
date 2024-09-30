@@ -1,4 +1,9 @@
 <script>
+    import { goto } from "$app/navigation";
+
+    function goHome() {
+        goto("/");
+    }
 </script>
 
 <body class="bg-blue-100 h-screen">
@@ -6,16 +11,16 @@
         <div class="w-8/12 h-80 relative border-b-4 border-green-600">
             <img class="absolute bottom-0" src="./sad-cat.jpeg" alt="Sad cat" />
         </div>
-
-        <!-- <div class="w-4/12 h-72 flex items-center">
-       
-    </div> -->
     </header>
-    <section class="mt-5 flex items-center flex-col">
-        <h1 class="text-7xl text-center pr-5 pl-5">
+    <section class="flex items-center flex-col mt-5">
+        <h1 class="font-catamaran text-7xl text-center pr-5 pl-5">
             Oh no! Looks like there is a small cat-astrophe. That page does not
             exist.
         </h1>
-        <button class="mt-10 border-2">Go Home</button>
+        <button
+            on:click={goHome}
+            class="w-36 pt-1 pb-1 mt-10 border-2 rounded-full border-green-600 bg-green-200 hover:bg-custom-brown"
+            >Go Home</button
+        >
     </section>
 </body>

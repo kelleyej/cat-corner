@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     let pages = [1, 2, 3, 4, 5, 6, 7, 8];
     import { goto } from "$app/navigation";
     import { breedStore, catStore } from "../store.js";
@@ -248,4 +248,4 @@
             ? 'cursor-not-allowed text-slate-400'
             : 'cursor-pointer'} pr-2 pl-2">Next</button
     >
-</section>
+</section> -->

@@ -11,9 +11,10 @@
 
     let pageNumber = Number($page.params.id);
     $: {
-        console.log(typeof pageNumber);
+        if (Number.isNaN(pageNumber)) {
+            console.log("yes");
+        }
     }
-
     onMount(async () => {
         fetch(
             `https://api.thecatapi.com/v1/breeds/?limit=9&page=${pageNumber - 1}`,
@@ -26,10 +27,5 @@
 <svelte:head>
     <title>Cat Breeds</title>
 </svelte:head>
-{#if pageNumber >= 9 || !pages.includes(pageNumber)}
-    <Error />
-{:else}
-    <Header />
-    <Pagination />
-{/if}
+
 <slot />
