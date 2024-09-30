@@ -82,7 +82,7 @@
     on:input={searchCatBreeds}
     bind:value={breedName}
 />
-<div class="text-center flex justify-center mt-9 text-xxs md:text-base">
+<div class="text-center flex justify-center mt-5 text-xxs md:text-base">
     <p class="mr-2 hidden sm:block">Check levels of:</p>
     <div>
         <input
