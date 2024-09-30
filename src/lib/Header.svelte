@@ -19,18 +19,18 @@
 </script>
 
 <header
-    class="h-64 flex bg-custom-blue items-center border-b-4 border-blue-500 size-full relative"
+    class="h-64 w-full flex bg-custom-blue items-center border-b-4 border-blue-500 size-full relative"
 >
     <div class="w-4/12">
         <img
-            class="xl:h-60 lg:h-40 md:h-36 sm:h-32 bottom-0 absolute"
+            class="xl:h-60 lg:h-40 md:h-36 sm:h-32 h-32 bottom-0 absolute"
             src="cat.jpeg"
             alt="Orange cat with round glasses on"
         />
     </div>
-    <div class="w-4/12 text-left h-64">
+    <div class="w-4/12 text-left h-64 items-center flex relative">
         <h1
-            class="font-catamaran not-italic xl:relative md:absolute md:left-10 lg:absolute lg:left-20 lg:text-9xl font-bold md:text-8xl sm:text-8xl sm:absolute sm:left-5 h-56 text-pink-500"
+            class="mt-1 text-5xl sm:text-7xl md:text-8xl font-catamaran not-italic font-bold text-pink-500"
         >
             <span
                 class="bg-gradient-to-r from-pink-900 to-pink-500 text-transparent bg-clip-text"
@@ -43,13 +43,15 @@
         </h1>
     </div>
 
-    <div class="text-center w-4/12 mr-2">
+    <div class="text-center w-4/12 mr-2 flex flex-col justify-center">
         <form on:submit|preventDefault={askQuestion}>
+            <label for="ask" class="invisible text-xs">Ask</label>
             <input
-                class="w-60 border-2 text-center p-2"
+                class="mt-5 xl:w-60 lg:w-60 md:w-60 sm:w-36 w-36 border-2 text-center p-2 ml-[-22px] mb-1 placeholder:text-sm"
                 type="text"
+                id="ask"
                 name="question"
-                placeholder="Ask a question about cats..."
+                placeholder="Ask a cat question"
                 bind:value={question}
             />
             <button
@@ -57,7 +59,7 @@
                 type="submit">Ask!</button
             >
         </form>
-        <div class="overflow-y-auto h-40 flex justify-center mt-2">
+        <div class="overflow-y-auto h-40 flex justify-center align-center mt-2">
             {#if loading}
                 <p class="w-96">Loading answer...</p>
             {:else}

@@ -7,13 +7,17 @@ export default {
         'custom-blue': '#D0F9FF',
         'custom-beige': '#E3FAE3',
         'custom-brown': '#FFFAF4',
-        'custom-bronze': '#CD7F2D'
+        'custom-bronze': '#CD7F2D',
+        'custom-purple': '#DBCFE3'
       },
       fontFamily: {
         'catamaran': 'Catamaran',
       },
       backgroundImage: {
         'hero-pattern': "url('/catBackground.jpeg')"
+      },
+      fontSize: {
+        'xxs': '0.625rem',
       }
     },
   },
