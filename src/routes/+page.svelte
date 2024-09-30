@@ -244,7 +244,7 @@
         Previous
     </button>
     {#each pages as page}
-        <div
+        <button
             on:click={() => handleClick(page)}
             class="text-center border-2 cursor-pointer w-10 mr-1 ml-1 {page ===
                 Number(activePage) ||
@@ -253,7 +253,7 @@
                 : ''}"
         >
             {page}
-        </div>
+        </button>
     {/each}
     <button
         disabled={Number(activePage) === 8 ? true : false}
