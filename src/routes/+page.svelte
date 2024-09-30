@@ -70,14 +70,6 @@
             activePage = nextPage;
         }
     }
-
-    function goToPreviousPage() {
-        let previousPage = (Number($page.params.id) - 1).toString();
-        goto(`/${previousPage}`);
-        paginateCatBreeds(previousPage);
-        breedName = "";
-        activePage = previousPage;
-    }
 </script>
 
 <Header />

@@ -1,7 +1,5 @@
 <script>
     import "../app.css";
-    import Header from "$lib/Header.svelte";
-    import Pagination from "$lib/Pagination.svelte";
     import { onMount } from "svelte";
     import { breedStore } from "../store.js";
     import { page } from "$app/stores";

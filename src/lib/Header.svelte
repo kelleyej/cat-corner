@@ -47,11 +47,11 @@
         <form on:submit|preventDefault={askQuestion}>
             <label for="ask" class="invisible text-xs">Ask</label>
             <input
-                class="mt-5 xl:w-60 lg:w-60 md:w-60 sm:w-36 w-36 border-2 text-center p-2 ml-[-22px] mb-1"
+                class="mt-5 xl:w-60 lg:w-60 md:w-60 sm:w-36 w-36 border-2 text-center p-2 ml-[-22px] mb-1 placeholder:text-sm"
                 type="text"
                 id="ask"
                 name="question"
-                placeholder="Ask a question about cats..."
+                placeholder="Ask a cat question"
                 bind:value={question}
             />
             <button
